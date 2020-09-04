@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Header from './Components/Header/Header';
 import Form from './Components/Form/Form'
 
-function App() {
+class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      inventory: []
+    }
+    }
+  
+
+    render(){
   return (
     <div className="App">
       <Dashboard />
@@ -12,7 +21,9 @@ function App() {
       <Header />
   
     </div>
-  );
+  )
 }
+}
+
 
 export default App;
