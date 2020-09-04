@@ -10,7 +10,7 @@ function App() {
       <Dashboard />
       <Form />
       <Header />
-    <h1>yoooooooooooo</h1>
+  
     </div>
   );
 }
