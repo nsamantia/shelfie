@@ -26,8 +26,14 @@ export default class Form extends Component{
         this.setState({imgurl: event.target.value})
     }
 
-    handleClear(){
-        this.setState({name: ""})
+    handleClear(event){
+        this.setState({
+            ...this.state,
+            name: '',
+            price: '',
+            imgurl: ''
+
+        })
     }
     
     
@@ -39,15 +45,17 @@ export default class Form extends Component{
 
         return(
             <div>
+                <form>
                 <div>
                     <input value={this.state.input} type="text" onChange={this.handleChangeName}/>
                     <input value={this.state.input} type="text" onChange={this.handleChangePrice} />
                     <input value={this.state.input} type="text" onChange={this.handleChangeImgurl}/>
                 </div>
                 <div>
-                    <button  className="cancel-add-buttons" type="button" >Cancel</button>
-                    <button className="cancel-add-buttons" type="button" onClick={e => this.handleAdd}>Add</button>
+                    <button  className="cancel-add-buttons" type="button" onClick={this.handleClear}>Cancel</button>
+                    <button className="cancel-add-buttons"  type="button" >Add</button>
                 </div>
+                </form>
                 
             </div>
         )

@@ -1,18 +1,13 @@
-import React, {Component} from 'react'
+import React from 'react'
 import Product from '../Product/Product'
 
-export default class Dashboard extends Component{
+
    
+const Dashboard = (props) =>{
+    return (
+    {props.Product.map(props =><h2>{props.name}</h2>)}
+    )
+}
 
-
-    render(){
-
-        return(
-            <div>
-           
-            <Product />
-            </div>
-        )
-    }
+    export default Dashboard
     
-} 
