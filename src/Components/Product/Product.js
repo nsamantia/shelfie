@@ -8,7 +8,7 @@ export default class Product extends Component{
 
         return(
             <div>
-               
+               <input type ='image' src={this.props.data.imgurl} />
             </div>
         )
     }
