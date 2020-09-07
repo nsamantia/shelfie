@@ -1,8 +1,6 @@
-const dotenv = require('dotenv');
-dotenv.config();
+require('dotenv').config()
+
 const express = require('express')
-
-
 const massive = require('massive')
 const invCtrl = require('./controller')
 const app = express()
@@ -19,8 +17,12 @@ app.use(express.json())
 
 app.get('/api/inventory',  invCtrl.getInventory)
 
-massive({connectionString: CONNECTION_STRING, ssl:{rejectUnauthorized: false},}).then((dbInstance) => {
+app.post('/api/product', invCtrl.addToInventory)
+
+massive({connectionString: CONNECTION_STRING, ssl:{rejectUnauthorized: false},})
+.then((dbInstance) => {
     app.set('db', dbInstance)
+    console.log('DB ready')
     app.listen(SERVER_PORT, () => {
         console.log(`What up from ${SERVER_PORT}`)
     })
