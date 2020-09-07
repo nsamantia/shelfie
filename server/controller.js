@@ -12,16 +12,12 @@ module.exports = {
     addToInventory: (req, res) => {
         const db = req.app.get('db')
         const {name, price, img} = req.body
-        console.log(name, price, img)
-
-    
-       
         
-    
-        res.status(200)
 
+        db.create_product([name, price, img]).then((product) => {
+            res.status(200).send(product)
+        }).catch(err => console.log(err))
 
     }
     
 }
-console.log(this.addToInventory)
