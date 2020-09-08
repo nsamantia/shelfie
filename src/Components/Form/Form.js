@@ -1,18 +1,20 @@
 import React, {Component} from 'react'
 
+
 export default class Form extends Component{
     constructor(){
         super()
         this.state = {
             name: "",
             price: 0,
-            imgurl: ''
+            imgurl: ""
         }
         this.handleChangeName = this.handleChangeName.bind(this)
         this.handleChangeImgurl = this.handleChangeImgurl.bind(this)
         this.handleChangePrice = this.handleChangePrice.bind(this)
         // this.handleAdd = this.handleAdd.bind(this)
         this.handleClear = this.handleClear.bind(this)
+        this.addNewProd = this.addNewProd.bind(this)
         
     }
 
@@ -35,12 +37,24 @@ export default class Form extends Component{
 
         })
     }
-    
-    
+
    
 
+    addNewProd(){
+       const {name, price, imgurl} = this.state
+       const newProd = {name, price, imgurl}
+       this.props.addProduct(newProd)
+       this.setState({
+           name: '',
+           price: 0,
+           imgurl: ''
+       })
+      }
 
-
+    
+    
+    
+    
     render(){
 
         return(
@@ -53,7 +67,7 @@ export default class Form extends Component{
                 </div>
                 <div>
                     <button  className="cancel-add-buttons" type="button" onClick={this.handleClear}>Cancel</button>
-                    <button className="cancel-add-buttons"  type="button" >Add</button>
+                    <button className="cancel-add-buttons"  type="button" onClick={this.addNewProd} >Add</button>
                 </div>
                 </form>
                 

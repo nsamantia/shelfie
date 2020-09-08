@@ -11,7 +11,8 @@ class App extends Component {
     this.state = {
       inventory: []
     }
-      
+      this.componentDidMount = this.componentDidMount.bind(this)
+      this.addProduct = this.addProduct.bind(this)
     }
   
     componentDidMount(){
@@ -23,6 +24,16 @@ class App extends Component {
       })
     }
 
+    // componentDidUpdate(i)
+  addProduct(newProd){
+    axios.post(`/api/product`, newProd)
+    .then(res => {
+      this.setState({
+        inventory: res.data
+      })
+    })
+  }
+
     render(){
 
       
@@ -32,7 +43,7 @@ class App extends Component {
     
 
       <Dashboard productTest={this.state.inventory}/>
-      <Form />
+      <Form addProduct={this.addProduct} />
       <Header />
   
     </div>

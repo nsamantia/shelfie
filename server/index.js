@@ -19,6 +19,8 @@ app.get('/api/inventory',  invCtrl.getInventory)
 
 app.post('/api/product', invCtrl.addToInventory)
 
+app.delete('/api/product/:id', invCtrl.deleteProduct)
+
 massive({connectionString: CONNECTION_STRING, ssl:{rejectUnauthorized: false},})
 .then((dbInstance) => {
     app.set('db', dbInstance)

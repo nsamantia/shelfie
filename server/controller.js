@@ -18,6 +18,14 @@ module.exports = {
             res.status(200).send(product)
         }).catch(err => console.log(err))
 
+    },
+
+    deleteProduct: (req, res) => {
+        const db = req.app.get('db')
+        
+        db.delete_product([id]).then(() => {
+            res.sendStatus(200)
+        })
     }
     
 }
