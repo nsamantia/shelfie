@@ -6,7 +6,7 @@ export default class Form extends Component{
         super()
         this.state = {
             name: "",
-            price: 0,
+            price: '',
             imgurl: ""
         }
         this.handleChangeName = this.handleChangeName.bind(this)
@@ -46,12 +46,12 @@ export default class Form extends Component{
        this.props.addProduct(newProd)
        this.setState({
            name: '',
-           price: 0,
+           price: '',
            imgurl: ''
        })
       }
 
-    
+   
     
     
     

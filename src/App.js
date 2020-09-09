@@ -13,10 +13,11 @@ class App extends Component {
     }
       this.componentDidMount = this.componentDidMount.bind(this)
       this.addProduct = this.addProduct.bind(this)
+      this.deleteProduct = this.deleteProduct.bind(this)
     }
   
     componentDidMount(){
-      axios.get('/api/inventory')
+      axios.get(`/api/inventory`)
       .then(res => {
         this.setState({
           inventory: res.data
@@ -24,12 +25,24 @@ class App extends Component {
       })
     }
 
-    // componentDidUpdate(i)
+    
   addProduct(newProd){
     axios.post(`/api/product`, newProd)
     .then(res => {
       this.setState({
         inventory: res.data
+      })
+    })
+  }
+
+  deleteProduct(delProd){
+
+    
+    axios.delete(`/api/product/${this.state.id}`, delProd)
+    .then(res => {
+      this.setState({
+        inventory: res.data
+        
       })
     })
   }
@@ -42,7 +55,7 @@ class App extends Component {
     <div className="App">
     
 
-      <Dashboard productTest={this.state.inventory}/>
+      <Dashboard productTest={this.state.inventory} deleteProduct={this.deleteProduct}/>
       <Form addProduct={this.addProduct} />
       <Header />
   

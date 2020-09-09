@@ -21,6 +21,7 @@ module.exports = {
     },
 
     deleteProduct: (req, res) => {
+        const {id} = req.params
         const db = req.app.get('db')
         
         db.delete_product([id]).then(() => {

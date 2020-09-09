@@ -9,6 +9,7 @@ const Dashboard = (props) =>{
             {props.productTest.map((element) =>{
             return(
                 <Product
+                deleteProduct={props.deleteProduct}
                 product = {props.product}
                 key={element.id}
                 data={element}
