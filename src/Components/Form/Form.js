@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 
 export default class Form extends Component{
@@ -59,6 +60,7 @@ export default class Form extends Component{
 
         return(
             <div>
+                {/* <Link to ="/">Back to the Dashboard</Link> */}
                 <form>
                 <div>
                     <input value={this.state.input} type="text" onChange={this.handleChangeName}/>

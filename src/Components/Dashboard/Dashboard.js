@@ -1,11 +1,13 @@
 import React from 'react'
 import Product from '../Product/Product'
+import {Link} from 'react-router-dom'
 
 
    
 const Dashboard = (props) =>{
     return(
         <div>
+            
             {props.productTest.map((element) =>{
             return(
                 <Product
@@ -16,6 +18,7 @@ const Dashboard = (props) =>{
                 />
             )
 })}
+    {/* <Link to="/add">Go To Forms</Link> */}
         </div>
     )
 }

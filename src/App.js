@@ -4,12 +4,14 @@ import axios from 'axios';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Header from './Components/Header/Header';
 import Form from './Components/Form/Form'
+import routes from './routes'
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
-      inventory: []
+      inventory: [],
+      id: ''
     }
       this.componentDidMount = this.componentDidMount.bind(this)
       this.addProduct = this.addProduct.bind(this)
@@ -58,6 +60,7 @@ class App extends Component {
       <Dashboard productTest={this.state.inventory} deleteProduct={this.deleteProduct}/>
       <Form addProduct={this.addProduct} />
       <Header />
+      {/* {routes} */}
   
     </div>
   )
