@@ -1,3 +1,5 @@
+
+let prodId = 0
 module.exports = {
 
     getInventory: (req, res) => {
@@ -22,15 +24,16 @@ module.exports = {
 
     deleteProduct: (req, res) => {
         const db = req.app.get('db')
-        const {id} = req.params
+        const {prodId} = req.params
         
-        db.delete_product([id]).then(() => {
+        //use spice somehow
+        db.delete_product([prodId]).then(() => {
             res.sendStatus(200)
         })
     },
 
     editProduct: (req, res) => {
-        const {id} = rew.params
+        const {prodId} = req.params
         const{ name, price, imgurl} = req.body
         const db = req.app.get('db')
 
