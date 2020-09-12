@@ -28,8 +28,8 @@ class App extends Component {
     }
 
     
-  addProduct(newProd){
-    axios.post(`/api/product`, newProd)
+  addProduct(product){
+    axios.post(`/api/product`, product)
     .then(res => {
       this.setState({
         inventory: res.data
@@ -37,10 +37,10 @@ class App extends Component {
     })
   }
 
-  deleteProduct(delProd){
+  deleteProduct(){
 
     
-    axios.delete(`/api/product/${this.state.id}`, delProd)
+    axios.delete(`/api/product/${this.state.id}`)
     .then(res => {
       this.setState({
         inventory: res.data
@@ -55,7 +55,6 @@ class App extends Component {
 
   return (
     <div className="App">
-    
 
       <Dashboard productTest={this.state.inventory} deleteProduct={this.deleteProduct}/>
       <Form addProduct={this.addProduct} />
