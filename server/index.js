@@ -19,7 +19,7 @@ app.get('/api/inventory',  invCtrl.getInventory)
 
 app.post('/api/product', invCtrl.addToInventory)
 
-app.put('/api/inventory', invCtrl.editProduct)
+app.put('/api/inventory/:id', invCtrl.editProduct)
 
 app.delete('/api/product/:id', invCtrl.deleteProduct)
 

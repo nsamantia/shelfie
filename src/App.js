@@ -11,7 +11,7 @@ class App extends Component {
     super()
     this.state = {
       inventory: [],
-      id: ''
+      
     }
       this.componentDidMount = this.componentDidMount.bind(this)
       this.addProduct = this.addProduct.bind(this)
@@ -25,6 +25,7 @@ class App extends Component {
           inventory: res.data
         })
       })
+      .catch(err => console.log(err))
     }
 
     
@@ -46,6 +47,8 @@ class App extends Component {
         inventory: res.data
         
       })
+    }) .catch((err) => {
+      alert(err)
     })
   }
 

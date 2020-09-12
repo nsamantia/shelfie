@@ -24,20 +24,20 @@ module.exports = {
 
     deleteProduct: (req, res) => {
         const db = req.app.get('db')
-        const {prodId} = req.params
+        const {id} = req.params
         
         //use spice somehow
-        db.delete_product([prodId]).then(() => {
+        db.delete_product([id]).then(() => {
             res.sendStatus(200)
         })
     },
 
     editProduct: (req, res) => {
-        const {prodId} = req.params
+        const {id} = req.params
         const{ name, price, imgurl} = req.body
         const db = req.app.get('db')
 
-        db.edit_product([name, price, imgurl]).then((product) => {
+        db.edit_product([id, name, price, imgurl]).then((product) => {
             res.status(200).send(product)
         }).catch(err => console.log(err))
     }
