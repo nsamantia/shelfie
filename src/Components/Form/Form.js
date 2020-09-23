@@ -8,12 +8,12 @@ export default class Form extends Component{
         this.state = {
             name: "",
             price: '',
-            imgurl: ""
+            imgurl: "",
+
         }
         this.handleChangeName = this.handleChangeName.bind(this)
         this.handleChangeImgurl = this.handleChangeImgurl.bind(this)
         this.handleChangePrice = this.handleChangePrice.bind(this)
-        // this.handleAdd = this.handleAdd.bind(this)
         this.handleClear = this.handleClear.bind(this)
         this.addNewProd = this.addNewProd.bind(this)
         
@@ -34,9 +34,15 @@ export default class Form extends Component{
             ...this.state,
             name: '',
             price: '',
-            imgurl: ''
+            imgurl: '',
+            id: ''
 
         })
+    }
+
+    componentDidUpdate(){
+        
+
     }
 
    
@@ -51,6 +57,10 @@ export default class Form extends Component{
            imgurl: ''
        })
       }
+
+     
+
+      
 
    
     
@@ -70,6 +80,7 @@ export default class Form extends Component{
                 <div>
                     <button  className="cancel-add-buttons" type="button" onClick={this.handleClear}>Cancel</button>
                     <button className="cancel-add-buttons"  type="button" onClick={this.addNewProd} >Add</button>
+                    
                 </div>
                 </form>
                 

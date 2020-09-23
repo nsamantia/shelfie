@@ -7,7 +7,7 @@ module.exports = {
 
         db.get_all_products().then((inventory) => {
             res.status(200).send(inventory)
-        })
+        }).catch(err => console.log(err))
         
     },
 
@@ -24,12 +24,12 @@ module.exports = {
 
     deleteProduct: (req, res) => {
         const db = req.app.get('db')
-        const {id} = req.params
+        const {id} = req.body
         
-        //use spice somehow
+        
         db.delete_product([id]).then(() => {
             res.sendStatus(200)
-        })
+        }).catch(err => console.log(err))
     },
 
     editProduct: (req, res) => {

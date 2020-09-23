@@ -12,6 +12,7 @@ const Dashboard = (props) =>{
             return(
                 <Product
                 deleteProduct={props.deleteProduct}
+                editProd={props.editProd}
                 product = {props.product}
                 key={element.id}
                 data={element}
@@ -24,4 +25,3 @@ const Dashboard = (props) =>{
 }
 
     export default Dashboard
-    
